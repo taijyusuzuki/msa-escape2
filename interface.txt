@@ -1,0 +1,70 @@
+####MovieProps.tsx####
+export interface Rating {
+  Source?: string,
+  Value?: string
+};
+
+export interface MovieProps {
+  Title?: string,
+  Year?: string,
+  Rated?: string,
+  Released?: string,
+  Runtime?: string,
+  Genre?: string,
+  Director?: string,
+  Writer?: string,
+  Actors?: string,
+  Plot?: string,
+  Language?: string,
+  Country?: string,
+  Awards?: string,
+  Poster?: string,
+  Ratings?: Rating[],
+  Metascore?: string,
+  imdbRating?: string,
+  imdbVotes?: string,
+  imdbID?: string,
+  Type?: string,
+  DVD?: string,
+  BoxOffice?: string,
+  Production?: string,
+  Website?: string,
+  Response?: string
+};
+
+####SearchAction.tsx####
+export enum SearchActionType {
+  'SEARCH_MOVIES_REQUEST',
+  'SEARCH_MOVIES_SUCCESS',
+  'SEARCH_MOVIES_FAILURE'
+};
+
+export interface SearchAction {
+  type: SearchActionType,
+  payload?: any,
+  error?: string
+};
+
+####searchCondition.tsx####
+import { Years } from "./Years";
+
+export interface SearchCondition {
+  Title: string
+  Year?: Years | ''
+};
+
+####searchStore.tsx####
+import { MovieProps } from "./MovieProps";
+
+export interface SearchStore {
+  loading: boolean,
+  movies: MovieProps[],
+  errorMessage?: string
+};
+
+####years.tsx####
+export interface Years {
+  value: string,
+  name: 'Year',
+  label: string
+};
